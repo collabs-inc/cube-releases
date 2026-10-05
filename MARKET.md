@@ -21,8 +21,12 @@ The root object has `version: 1` and an `apps` array. Every entry has:
 - `revision` (optional): a full 40- or 64-character Git commit hash from the install repository's default branch. This is a catalog snapshot, not an install pin or an upstream release version.
 - `updatedAt` (optional): that revision's ISO timestamp.
 - `sourceSizeBytes` (optional): GitHub's approximate repository size (`size` in KiB × 1024), a non-negative safe integer. This is not the download or installed size; build dependencies and app data can make an installation much larger.
+- `githubStars` (optional): GitHub's `stargazers_count`, a non-negative safe integer, for `upstream` when present and `repository` otherwise. Never use the integration fork's count when the original project is listed.
+- `githubStarsUpdatedAt` (optional): the ISO timestamp when the star count was fetched.
 
 Refresh this metadata from GitHub when updating an integration. Market measures installed app-folder usage live on the selected machine and shows its actual installed revision separately. These fields are optional additions to version 1, so older Cube builds can still read the catalog.
+
+Refresh all star counts with `node market-metadata/refresh-stars.mjs`, review the catalog diff, then commit and publish it with other catalog updates. The script uses GitHub's public repository API; optional `GH_TOKEN` or `GITHUB_TOKEN` authentication raises its request allowance. It replaces the catalog only after every count is valid. Run its checks with `node --test market-metadata/refresh-stars.test.mjs`. Cube reads the saved counts in its single catalog request rather than sending a GitHub request for every card on every client.
 
 For repositories that already contain `cube.json`, omit `manifest`. For an upstream repository with a separately maintained launch recipe, the shape is:
 
