@@ -11,6 +11,15 @@ The root object has `version: 1` and an `apps` array. Every entry has:
 - `icon` (optional): an HTTPS image URL for the catalog listing.
 - `tags` (optional): up to eight search labels, at most 24 characters each.
 - `manifest` (optional): a complete Cube launch manifest, for a repository that does not ship `cube.json`.
+- `creator` (optional): `{ "name": "Original team", "url": "https://github.com/original" }`. Credit the original author or organization, not the owner of an integration fork. Names are at most 128 characters; URLs must use HTTPS.
+- `upstream` (optional): the original HTTPS GitHub repository URL when `repository` is a Cube integration fork.
+- `website` (optional): the project's HTTPS website.
+- `license` (optional): the repository's license identifier, at most 128 characters. Omit when unknown or mixed; the UI links to the repository rather than guessing.
+- `revision` (optional): a full 40- or 64-character Git commit hash from the install repository's default branch. This is a catalog snapshot, not an install pin or an upstream release version.
+- `updatedAt` (optional): that revision's ISO timestamp.
+- `sourceSizeBytes` (optional): GitHub's approximate repository size (`size` in KiB × 1024), a non-negative safe integer. This is not the download or installed size; build dependencies and app data can make an installation much larger.
+
+Refresh this metadata from GitHub when updating an integration. Market measures installed app-folder usage live on the selected machine and shows its actual installed revision separately. These fields are optional additions to version 1, so older Cube builds can still read the catalog.
 
 For repositories that already contain `cube.json`, omit `manifest`. For an upstream repository with a separately maintained launch recipe, the shape is:
 

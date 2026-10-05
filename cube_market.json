@@ -10,7 +10,16 @@
       "tags": [
         "Artifacts",
         "Workspace"
-      ]
+      ],
+      "creator": {
+        "name": "telepath-computer",
+        "url": "https://github.com/telepath-computer"
+      },
+      "upstream": "https://github.com/telepath-computer/television",
+      "website": "https://television.run",
+      "revision": "86e8bb98dccb26c9f68f3c8774d6534432b4a8bf",
+      "updatedAt": "2026-10-04T23:50:23Z",
+      "sourceSizeBytes": 15745024
     },
     {
       "id": "openmausbot",
@@ -21,7 +30,17 @@
       "tags": [
         "Agents",
         "Productivity"
-      ]
+      ],
+      "creator": {
+        "name": "milind-soni",
+        "url": "https://github.com/milind-soni"
+      },
+      "upstream": "https://github.com/milind-soni/OpenMausBot",
+      "website": "https://www.openmausbot.com/",
+      "license": "Apache-2.0",
+      "revision": "0c6a2a0c7a344821c9ae81e5a1f7f4d92bbc85ca",
+      "updatedAt": "2026-10-04T23:53:31Z",
+      "sourceSizeBytes": 164768768
     },
     {
       "id": "t3-code",
@@ -32,7 +51,17 @@
       "tags": [
         "Development",
         "Agents"
-      ]
+      ],
+      "creator": {
+        "name": "pingdotgg",
+        "url": "https://github.com/pingdotgg"
+      },
+      "upstream": "https://github.com/pingdotgg/t3code",
+      "website": "https://t3.codes",
+      "license": "MIT",
+      "revision": "2ec7bd91663902e4fe42162d491285eb6a797597",
+      "updatedAt": "2026-10-05T00:29:03Z",
+      "sourceSizeBytes": 444210176
     },
     {
       "id": "kandev",
@@ -43,7 +72,17 @@
       "tags": [
         "Development",
         "Tasks"
-      ]
+      ],
+      "creator": {
+        "name": "kdlbs",
+        "url": "https://github.com/kdlbs"
+      },
+      "upstream": "https://github.com/kdlbs/kandev",
+      "website": "https://kandev.ai",
+      "license": "AGPL-3.0",
+      "revision": "aaa6523fc49320ad20636f253e100d07175152fb",
+      "updatedAt": "2026-10-05T01:09:54Z",
+      "sourceSizeBytes": 313858048
     },
     {
       "id": "vibe-kanban",
@@ -54,7 +93,17 @@
       "tags": [
         "Development",
         "Worktrees"
-      ]
+      ],
+      "creator": {
+        "name": "BloopAI",
+        "url": "https://github.com/BloopAI"
+      },
+      "upstream": "https://github.com/BloopAI/vibe-kanban",
+      "website": "https://www.vibekanban.com/",
+      "license": "Apache-2.0",
+      "revision": "e25cafb2f1c9a933c21045556938f430d46cd275",
+      "updatedAt": "2026-10-05T01:12:53Z",
+      "sourceSizeBytes": 106523648
     },
     {
       "id": "openwork",
@@ -65,7 +114,16 @@
       "tags": [
         "Workspace",
         "Agents"
-      ]
+      ],
+      "creator": {
+        "name": "different-ai",
+        "url": "https://github.com/different-ai"
+      },
+      "upstream": "https://github.com/different-ai/openwork",
+      "website": "https://openworklabs.com",
+      "revision": "bfcf107de9df21d9571657d8067712caeb847577",
+      "updatedAt": "2026-10-05T01:07:59Z",
+      "sourceSizeBytes": 403366912
     },
     {
       "id": "paperclip",
@@ -76,7 +134,17 @@
       "tags": [
         "Teams",
         "Automation"
-      ]
+      ],
+      "creator": {
+        "name": "paperclipai",
+        "url": "https://github.com/paperclipai"
+      },
+      "upstream": "https://github.com/paperclipai/paperclip",
+      "website": "https://paperclip.ing",
+      "license": "MIT",
+      "revision": "2df5087a7e6230ac46e4fb3097f9ce5ee6148007",
+      "updatedAt": "2026-10-05T02:05:40Z",
+      "sourceSizeBytes": 319480832
     },
     {
       "id": "openhands",
@@ -87,7 +155,17 @@
       "tags": [
         "Development",
         "Agents"
-      ]
+      ],
+      "creator": {
+        "name": "OpenHands",
+        "url": "https://github.com/OpenHands"
+      },
+      "upstream": "https://github.com/OpenHands/OpenHands",
+      "website": "https://openhands.dev",
+      "license": "MIT",
+      "revision": "8c4c5e604a437d22cac2ee736b7ce2f25d20443b",
+      "updatedAt": "2026-10-05T01:23:18Z",
+      "sourceSizeBytes": 456088576
     }
   ]
 }
