@@ -256,6 +256,24 @@
       },
       "githubStars": 90011,
       "githubStarsUpdatedAt": "2026-10-05T05:26:24.108Z"
+    },
+    {
+      "id": "cube-studio",
+      "name": "Studio",
+      "description": "Make motion pieces with a Director agent: live preview, a render queue, and renders it reviews for you.",
+      "repository": "https://github.com/collabs-inc/cube-studio",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-studio/3009ea502b472614c910f3f8d8f7eff73657028b/studio/icon.svg",
+      "tags": [
+        "Video",
+        "Creative",
+        "Agents"
+      ],
+      "creator": {
+        "name": "collabs-inc",
+        "url": "https://github.com/collabs-inc"
+      },
+      "revision": "3009ea502b472614c910f3f8d8f7eff73657028b",
+      "updatedAt": "2026-10-05T06:05:00Z"
     }
   ]
 }
