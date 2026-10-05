@@ -2,16 +2,6 @@
   "version": 1,
   "apps": [
     {
-      "id": "personas",
-      "name": "Personas",
-      "description": "A long-running agent that directs Claude Code and Codex workers on this machine.",
-      "repository": "https://github.com/collabs-inc/cube-personas",
-      "tags": [
-        "Agents",
-        "Productivity"
-      ]
-    },
-    {
       "id": "television",
       "name": "Television",
       "description": "A visual workspace for artifacts made with your personal agents.",
