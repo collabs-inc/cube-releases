@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "apps": [
+    {
+      "id": "personas",
+      "name": "Personas",
+      "description": "A long-running agent that directs Claude Code and Codex workers on this machine.",
+      "repository": "https://github.com/collabs-inc/cube-personas",
+      "tags": [
+        "Agents",
+        "Productivity"
+      ]
+    },
+    {
+      "id": "television",
+      "name": "Television",
+      "description": "A visual workspace for artifacts made with your personal agents.",
+      "repository": "https://github.com/collabs-inc/television",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/television/cube-app/packages/desktop/assets/icon.png",
+      "tags": [
+        "Artifacts",
+        "Workspace"
+      ]
+    },
+    {
+      "id": "openmausbot",
+      "name": "OpenMausBot",
+      "description": "A team of AI bots powered by your existing Claude and Codex CLI sign-ins, with persistent chats, tools, and approvals.",
+      "repository": "https://github.com/collabs-inc/OpenMausBot",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/OpenMausBot/cube-app/public/app-icon.svg",
+      "tags": [
+        "Agents",
+        "Productivity"
+      ]
+    },
+    {
+      "id": "t3-code",
+      "name": "T3 Code",
+      "description": "An agent development workspace using this machine's Claude Code, Codex and other installed coding agents.",
+      "repository": "https://github.com/collabs-inc/t3code",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/t3code/cube-app/apps/web/public/apple-touch-icon.png",
+      "tags": [
+        "Development",
+        "Agents"
+      ]
+    },
+    {
+      "id": "kandev",
+      "name": "Kandev",
+      "description": "Kanban tasks, parallel coding agents, worktrees, terminals and code review using this machine's agent sign-ins.",
+      "repository": "https://github.com/collabs-inc/cube-kandev",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-kandev/cube-app/apps/web/public/icon.svg",
+      "tags": [
+        "Development",
+        "Tasks"
+      ]
+    },
+    {
+      "id": "vibe-kanban",
+      "name": "Vibe Kanban",
+      "description": "Local coding-agent workspaces, parallel sessions and code review. Upstream cloud boards have been sunset.",
+      "repository": "https://github.com/collabs-inc/cube-vibe-kanban",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-vibe-kanban/cube-app/packages/public/favicon-vk-light.svg",
+      "tags": [
+        "Development",
+        "Worktrees"
+      ]
+    },
+    {
+      "id": "openwork",
+      "name": "OpenWork",
+      "description": "An open-source AI workspace for files, conversations and tools, powered by OpenCode. Configure a model provider in OpenWork.",
+      "repository": "https://github.com/collabs-inc/cube-openwork",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-openwork/cube-app/apps/app/public/openwork-logo-square.svg",
+      "tags": [
+        "Workspace",
+        "Agents"
+      ]
+    },
+    {
+      "id": "paperclip",
+      "name": "Paperclip",
+      "description": "Manage agent teams, companies, tasks, approvals and budgets using this machine's coding agents.",
+      "repository": "https://github.com/collabs-inc/paperclip",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/paperclip/cube-app/ui/public/favicon.svg",
+      "tags": [
+        "Teams",
+        "Automation"
+      ]
+    },
+    {
+      "id": "openhands",
+      "name": "OpenHands",
+      "description": "Agent Canvas: coding agents, conversations and automations using a local OpenHands backend.",
+      "repository": "https://github.com/collabs-inc/OpenHands",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/OpenHands/cube-app/public/favicon.svg",
+      "tags": [
+        "Development",
+        "Agents"
+      ]
+    }
+  ]
+}
