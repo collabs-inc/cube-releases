@@ -310,6 +310,24 @@
       },
       "revision": "312fcb8ba5ee0f4ab9c335387a097bc08299f461",
       "updatedAt": "2026-10-05T07:03:45Z"
+    },
+    {
+      "id": "cube-mind",
+      "name": "Mind",
+      "description": "Save anything, find it again: links, pictures, notes and quotes in one calm grid, with a Curator that tags them.",
+      "repository": "https://github.com/collabs-inc/cube-mind",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-mind/146ab881630220502c2d03c12bb64bf2bcd1147c/web/icon.svg",
+      "tags": [
+        "Bookmarks",
+        "Inspiration",
+        "Agents"
+      ],
+      "creator": {
+        "name": "collabs-inc",
+        "url": "https://github.com/collabs-inc"
+      },
+      "revision": "146ab881630220502c2d03c12bb64bf2bcd1147c",
+      "updatedAt": "2026-10-05T07:36:01Z"
     }
   ]
 }
