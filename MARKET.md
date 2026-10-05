@@ -2,6 +2,8 @@
 
 `cube_market.json` is the public catalog read by Cube's Market app. It is maintained separately from this repository's generated release assets and tags.
 
+List the original project and install from its repository wherever possible. Keep Cube-specific launch support in a side manifest here; use a fork only when actual application changes are necessary. See [market-launchers](market-launchers/README.md) for the checksum-pinned launch bundles. Existing installations keep their saved source and recipe.
+
 The root object has `version: 1` and an `apps` array. Every entry has:
 
 - `id`: a unique lowercase kebab-case identifier, at most 64 characters.
@@ -13,6 +15,7 @@ The root object has `version: 1` and an `apps` array. Every entry has:
 - `manifest` (optional): a complete Cube launch manifest, for a repository that does not ship `cube.json`.
 - `creator` (optional): `{ "name": "Original team", "url": "https://github.com/original" }`. Credit the original author or organization, not the owner of an integration fork. Names are at most 128 characters; URLs must use HTTPS.
 - `upstream` (optional): the original HTTPS GitHub repository URL when `repository` is a Cube integration fork.
+- `previousRepositories` (optional): up to eight former install repositories. Market recognizes their existing installations as this app, while new installations always use `repository`. Aliases must not overlap another entry's repository or aliases. They do not retarget an installed app's update source.
 - `website` (optional): the project's HTTPS website.
 - `license` (optional): the repository's license identifier, at most 128 characters. Omit when unknown or mixed; the UI links to the repository rather than guessing.
 - `revision` (optional): a full 40- or 64-character Git commit hash from the install repository's default branch. This is a catalog snapshot, not an install pin or an upstream release version.

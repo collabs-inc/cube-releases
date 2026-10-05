@@ -5,8 +5,8 @@
       "id": "television",
       "name": "Television",
       "description": "A visual workspace for artifacts made with your personal agents.",
-      "repository": "https://github.com/collabs-inc/television",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/television/cube-app/packages/desktop/assets/icon.png",
+      "repository": "https://github.com/telepath-computer/television",
+      "icon": "https://raw.githubusercontent.com/telepath-computer/television/e81bfc74732d6c84af3d254d1ba2625838cbd1fb/packages/desktop/assets/icon.png",
       "tags": [
         "Artifacts",
         "Workspace"
@@ -15,11 +15,24 @@
         "name": "telepath-computer",
         "url": "https://github.com/telepath-computer"
       },
-      "upstream": "https://github.com/telepath-computer/television",
       "website": "https://television.run",
-      "revision": "86e8bb98dccb26c9f68f3c8774d6534432b4a8bf",
-      "updatedAt": "2026-10-04T23:50:23Z",
-      "sourceSizeBytes": 15745024
+      "revision": "e81bfc74732d6c84af3d254d1ba2625838cbd1fb",
+      "updatedAt": "2026-10-02T06:36:02Z",
+      "sourceSizeBytes": 26487808,
+      "previousRepositories": [
+        "https://github.com/collabs-inc/television"
+      ],
+      "manifest": {
+        "name": "Television",
+        "description": "A visual workspace for artifacts made with your personal agents.",
+        "icon": "packages/desktop/assets/icon.png",
+        "platforms": [
+          "linux",
+          "darwin"
+        ],
+        "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/television-599b379d843cbb59.tar.gz 599b379d843cbb596f9491698f348ab749455a53ceeb30759acfe9963aebffe0 television && bash cube/install.sh",
+        "start": "bash cube/start.sh"
+      }
     },
     {
       "id": "openmausbot",
@@ -46,8 +59,8 @@
       "id": "t3-code",
       "name": "T3 Code",
       "description": "An agent development workspace using this machine's Claude Code, Codex and other installed coding agents.",
-      "repository": "https://github.com/collabs-inc/t3code",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/t3code/cube-app/apps/web/public/apple-touch-icon.png",
+      "repository": "https://github.com/pingdotgg/t3code",
+      "icon": "https://raw.githubusercontent.com/pingdotgg/t3code/a1d9d72aefc2a388ea3915956e9d84d279c87da7/apps/web/public/apple-touch-icon.png",
       "tags": [
         "Development",
         "Agents"
@@ -56,19 +69,32 @@
         "name": "pingdotgg",
         "url": "https://github.com/pingdotgg"
       },
-      "upstream": "https://github.com/pingdotgg/t3code",
       "website": "https://t3.codes",
       "license": "MIT",
-      "revision": "2ec7bd91663902e4fe42162d491285eb6a797597",
-      "updatedAt": "2026-10-05T00:29:03Z",
-      "sourceSizeBytes": 444210176
+      "revision": "a1d9d72aefc2a388ea3915956e9d84d279c87da7",
+      "updatedAt": "2026-10-05T03:33:40Z",
+      "sourceSizeBytes": 445051904,
+      "previousRepositories": [
+        "https://github.com/collabs-inc/t3code"
+      ],
+      "manifest": {
+        "name": "T3 Code",
+        "description": "An agent development workspace using this machine's Claude Code, Codex and other installed coding agents.",
+        "icon": "apps/web/public/apple-touch-icon.png",
+        "platforms": [
+          "linux",
+          "darwin"
+        ],
+        "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/t3-code-d5ae6edaba9416b7.tar.gz d5ae6edaba9416b770bc9bb94834c45c63b6ca0bf6ddca58b6d1730b7aaf02e1 t3-code && sh cube/install.sh",
+        "start": "node cube/start.mjs"
+      }
     },
     {
       "id": "kandev",
       "name": "Kandev",
       "description": "Kanban tasks, parallel coding agents, worktrees, terminals and code review using this machine's agent sign-ins.",
-      "repository": "https://github.com/collabs-inc/cube-kandev",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-kandev/cube-app/apps/web/public/icon.svg",
+      "repository": "https://github.com/kdlbs/kandev",
+      "icon": "https://raw.githubusercontent.com/kdlbs/kandev/def028f60c73bb8dfd43bed84c5aef066dc24382/apps/web/public/icon.svg",
       "tags": [
         "Development",
         "Tasks"
@@ -77,19 +103,31 @@
         "name": "kdlbs",
         "url": "https://github.com/kdlbs"
       },
-      "upstream": "https://github.com/kdlbs/kandev",
       "website": "https://kandev.ai",
       "license": "AGPL-3.0",
-      "revision": "aaa6523fc49320ad20636f253e100d07175152fb",
-      "updatedAt": "2026-10-05T01:09:54Z",
-      "sourceSizeBytes": 313858048
+      "revision": "def028f60c73bb8dfd43bed84c5aef066dc24382",
+      "updatedAt": "2026-10-04T22:40:27Z",
+      "sourceSizeBytes": 314079232,
+      "previousRepositories": [
+        "https://github.com/collabs-inc/cube-kandev"
+      ],
+      "manifest": {
+        "name": "Kandev",
+        "description": "Kanban tasks, parallel coding agents, worktrees, terminals and code review using this machine's agent sign-ins.",
+        "icon": "apps/web/public/icon.svg",
+        "platforms": [
+          "linux"
+        ],
+        "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/kandev-d8a173d5025eb820.tar.gz d8a173d5025eb820596062d37c78a81c6cd1083eaabc11b698a66fb73ff4da6b kandev && sh cube/install.sh",
+        "start": "sh cube/start.sh"
+      }
     },
     {
       "id": "vibe-kanban",
       "name": "Vibe Kanban",
       "description": "Local coding-agent workspaces, parallel sessions and code review. Upstream cloud boards have been sunset.",
-      "repository": "https://github.com/collabs-inc/cube-vibe-kanban",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-vibe-kanban/cube-app/packages/public/favicon-vk-light.svg",
+      "repository": "https://github.com/BloopAI/vibe-kanban",
+      "icon": "https://raw.githubusercontent.com/BloopAI/vibe-kanban/d5cbb5380fa0b32e98ef9b8d987f63decce4be3a/packages/public/favicon-vk-light.svg",
       "tags": [
         "Development",
         "Worktrees"
@@ -98,12 +136,24 @@
         "name": "BloopAI",
         "url": "https://github.com/BloopAI"
       },
-      "upstream": "https://github.com/BloopAI/vibe-kanban",
       "website": "https://www.vibekanban.com/",
       "license": "Apache-2.0",
-      "revision": "e25cafb2f1c9a933c21045556938f430d46cd275",
-      "updatedAt": "2026-10-05T01:12:53Z",
-      "sourceSizeBytes": 106523648
+      "revision": "d5cbb5380fa0b32e98ef9b8d987f63decce4be3a",
+      "updatedAt": "2026-09-19T06:51:27Z",
+      "sourceSizeBytes": 106511360,
+      "previousRepositories": [
+        "https://github.com/collabs-inc/cube-vibe-kanban"
+      ],
+      "manifest": {
+        "name": "Vibe Kanban",
+        "description": "Local coding-agent workspaces, parallel sessions and code review. Upstream cloud boards have been sunset.",
+        "icon": "packages/public/favicon-vk-light.svg",
+        "platforms": [
+          "linux"
+        ],
+        "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/vibe-kanban-cd83030d8c057a2c.tar.gz cd83030d8c057a2c4f7a6632ec0f43e7becd79b8851cee7ef7e2e740c14b484a vibe-kanban && sh cube/install.sh",
+        "start": "node cube/start.mjs"
+      }
     },
     {
       "id": "openwork",
@@ -129,8 +179,8 @@
       "id": "paperclip",
       "name": "Paperclip",
       "description": "Manage agent teams, companies, tasks, approvals and budgets using this machine's coding agents.",
-      "repository": "https://github.com/collabs-inc/paperclip",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/paperclip/cube-app/ui/public/favicon.svg",
+      "repository": "https://github.com/paperclipai/paperclip",
+      "icon": "https://raw.githubusercontent.com/paperclipai/paperclip/1c07b5903b1b11139b1e1ce052a3cd4885865d90/ui/public/favicon.svg",
       "tags": [
         "Teams",
         "Automation"
@@ -139,19 +189,31 @@
         "name": "paperclipai",
         "url": "https://github.com/paperclipai"
       },
-      "upstream": "https://github.com/paperclipai/paperclip",
       "website": "https://paperclip.ing",
       "license": "MIT",
-      "revision": "2df5087a7e6230ac46e4fb3097f9ce5ee6148007",
-      "updatedAt": "2026-10-05T02:05:40Z",
-      "sourceSizeBytes": 319480832
+      "revision": "1c07b5903b1b11139b1e1ce052a3cd4885865d90",
+      "updatedAt": "2026-10-04T09:13:46Z",
+      "sourceSizeBytes": 320239616,
+      "previousRepositories": [
+        "https://github.com/collabs-inc/paperclip"
+      ],
+      "manifest": {
+        "name": "Paperclip",
+        "description": "Manage agent teams, companies, tasks, approvals and budgets using this machine's coding agents.",
+        "icon": "ui/public/favicon.svg",
+        "platforms": [
+          "linux"
+        ],
+        "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/paperclip-063f4f11f0ca8c3c.tar.gz 063f4f11f0ca8c3c963eba6b4d8b833c73947e0d5377ab3db9c799407629dcfc paperclip && sh cube/install.sh",
+        "start": "sh cube/start.sh"
+      }
     },
     {
       "id": "openhands",
       "name": "OpenHands",
       "description": "Agent Canvas: coding agents, conversations and automations using a local OpenHands backend.",
-      "repository": "https://github.com/collabs-inc/OpenHands",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/OpenHands/cube-app/public/favicon.svg",
+      "repository": "https://github.com/OpenHands/OpenHands",
+      "icon": "https://raw.githubusercontent.com/OpenHands/OpenHands/8bb2293410c3488828a532b52691b7aaac10797d/public/favicon.svg",
       "tags": [
         "Development",
         "Agents"
@@ -160,12 +222,24 @@
         "name": "OpenHands",
         "url": "https://github.com/OpenHands"
       },
-      "upstream": "https://github.com/OpenHands/OpenHands",
       "website": "https://openhands.dev",
       "license": "MIT",
-      "revision": "8c4c5e604a437d22cac2ee736b7ce2f25d20443b",
-      "updatedAt": "2026-10-05T01:23:18Z",
-      "sourceSizeBytes": 456088576
+      "revision": "8bb2293410c3488828a532b52691b7aaac10797d",
+      "updatedAt": "2026-10-04T23:59:21Z",
+      "sourceSizeBytes": 462147584,
+      "previousRepositories": [
+        "https://github.com/collabs-inc/OpenHands"
+      ],
+      "manifest": {
+        "name": "OpenHands",
+        "description": "Agent Canvas: coding agents, conversations and automations using a local OpenHands backend.",
+        "icon": "public/favicon.svg",
+        "platforms": [
+          "linux"
+        ],
+        "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/openhands-28ad5590beec2c25.tar.gz 28ad5590beec2c259cbb62ea6c203ede430b611b61b96bdf5765aaf4a44f8597 openhands && sh cube/install.sh",
+        "start": "sh cube/start.sh"
+      }
     }
   ]
 }
