@@ -259,10 +259,10 @@
     },
     {
       "id": "cube-studio",
-      "name": "Studio",
+      "name": "Cube Studio",
       "description": "Make motion pieces with a Director agent: live preview, a render queue, and renders it reviews for you.",
       "repository": "https://github.com/collabs-inc/cube-studio",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-studio/8ca487fd823a461fd1caf571bad41efbaf846d74/studio/icon.svg",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-studio/c176ab20608d924fca4e9bfbfe503eb9c6d0ba84/studio/icon.svg",
       "tags": [
         "Video",
         "Creative",
@@ -272,15 +272,15 @@
         "name": "collabs-inc",
         "url": "https://github.com/collabs-inc"
       },
-      "revision": "8ca487fd823a461fd1caf571bad41efbaf846d74",
-      "updatedAt": "2026-10-05T06:50:53Z"
+      "revision": "c176ab20608d924fca4e9bfbfe503eb9c6d0ba84",
+      "updatedAt": "2026-10-05T08:01:22Z"
     },
     {
-      "id": "cube-radar",
-      "name": "Radar",
+      "id": "cube-scout",
+      "name": "Cube Scout",
       "description": "Go-to-market with Scout: the posts worth your reply across X, LinkedIn, Reddit, HN and video, with drafts in your voice.",
-      "repository": "https://github.com/collabs-inc/cube-radar",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-radar/042ec91f266080eebf2414db3b5f4fb6a8ed5b97/web/icon.svg",
+      "repository": "https://github.com/collabs-inc/cube-scout",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-scout/8b37dab8c28c38f8ec8b4c4897d41433ad7787e0/web/icon.svg",
       "tags": [
         "Marketing",
         "Agents",
@@ -290,15 +290,18 @@
         "name": "collabs-inc",
         "url": "https://github.com/collabs-inc"
       },
-      "revision": "042ec91f266080eebf2414db3b5f4fb6a8ed5b97",
-      "updatedAt": "2026-10-05T06:50:51Z"
+      "revision": "8b37dab8c28c38f8ec8b4c4897d41433ad7787e0",
+      "updatedAt": "2026-10-05T08:01:07Z",
+      "previousRepositories": [
+        "https://github.com/collabs-inc/cube-radar"
+      ]
     },
     {
-      "id": "cube-notes",
-      "name": "Notes",
-      "description": "An Obsidian-compatible vault for you and your agents, with a Librarian that summarizes, links and files.",
-      "repository": "https://github.com/collabs-inc/cube-notes",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-notes/312fcb8ba5ee0f4ab9c335387a097bc08299f461/web/icon.svg",
+      "id": "cube-write",
+      "name": "Cube Write",
+      "description": "An Obsidian-compatible vault for you and your agents, with an Editor that summarizes, links and files.",
+      "repository": "https://github.com/collabs-inc/cube-write",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-write/0f62cbeaea5a01f7c8556c6757be315612e02d23/web/icon.svg",
       "tags": [
         "Notes",
         "Writing",
@@ -308,26 +311,11 @@
         "name": "collabs-inc",
         "url": "https://github.com/collabs-inc"
       },
-      "revision": "312fcb8ba5ee0f4ab9c335387a097bc08299f461",
-      "updatedAt": "2026-10-05T07:03:45Z"
-    },
-    {
-      "id": "cube-mind",
-      "name": "Mind",
-      "description": "Save anything, find it again: links, pictures, notes and quotes in one calm grid, with a Curator that tags them.",
-      "repository": "https://github.com/collabs-inc/cube-mind",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-mind/146ab881630220502c2d03c12bb64bf2bcd1147c/web/icon.svg",
-      "tags": [
-        "Bookmarks",
-        "Inspiration",
-        "Agents"
-      ],
-      "creator": {
-        "name": "collabs-inc",
-        "url": "https://github.com/collabs-inc"
-      },
-      "revision": "146ab881630220502c2d03c12bb64bf2bcd1147c",
-      "updatedAt": "2026-10-05T07:36:01Z"
+      "revision": "0f62cbeaea5a01f7c8556c6757be315612e02d23",
+      "updatedAt": "2026-10-05T08:01:05Z",
+      "previousRepositories": [
+        "https://github.com/collabs-inc/cube-notes"
+      ]
     }
   ]
 }
