@@ -1,0 +1,5 @@
+{
+  "name": "cube-paperclip-runtime",
+  "private": true,
+  "dependencies": { "paperclipai": "2026.1001.0" }
+}

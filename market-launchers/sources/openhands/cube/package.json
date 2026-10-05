@@ -1,0 +1,5 @@
+{
+  "name": "cube-openhands-runtime",
+  "private": true,
+  "dependencies": { "@openhands/agent-canvas": "1.24.0" }
+}

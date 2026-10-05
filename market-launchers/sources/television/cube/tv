@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+# This file is symlinked into ~/.local/bin by Cube's installer.
+tv_script="${BASH_SOURCE[0]}"
+if [ -L "$tv_script" ]; then tv_script=$(readlink "$tv_script"); fi
+tv_repo=$(cd "$(dirname "$tv_script")/.." && pwd)
+tv_home="${XDG_DATA_HOME:-$HOME/.local/share}/cube-television"
+exec node "$tv_repo/packages/cli/dist/cli.cjs" --home "$tv_home" "$@"

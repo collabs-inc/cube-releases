@@ -1,0 +1,94 @@
+{
+  "television": {
+    "sourceCommit": "86e8bb98dccb26c9f68f3c8774d6534432b4a8bf",
+    "sha256": "599b379d843cbb596f9491698f348ab749455a53ceeb30759acfe9963aebffe0",
+    "bundle": "television-599b379d843cbb59.tar.gz",
+    "manifest": {
+      "name": "Television",
+      "description": "A visual workspace for artifacts made with your personal agents.",
+      "icon": "packages/desktop/assets/icon.png",
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
+      "install": "bash cube/install.sh",
+      "start": "bash cube/start.sh"
+    }
+  },
+  "t3-code": {
+    "sourceCommit": "2ec7bd91663902e4fe42162d491285eb6a797597",
+    "sha256": "d5ae6edaba9416b770bc9bb94834c45c63b6ca0bf6ddca58b6d1730b7aaf02e1",
+    "bundle": "t3-code-d5ae6edaba9416b7.tar.gz",
+    "manifest": {
+      "name": "T3 Code",
+      "description": "An agent development workspace using this machine's Claude Code, Codex and other installed coding agents.",
+      "icon": "apps/web/public/apple-touch-icon.png",
+      "platforms": [
+        "linux",
+        "darwin"
+      ],
+      "install": "sh cube/install.sh",
+      "start": "node cube/start.mjs"
+    }
+  },
+  "kandev": {
+    "sourceCommit": "aaa6523fc49320ad20636f253e100d07175152fb",
+    "sha256": "d8a173d5025eb820596062d37c78a81c6cd1083eaabc11b698a66fb73ff4da6b",
+    "bundle": "kandev-d8a173d5025eb820.tar.gz",
+    "manifest": {
+      "name": "Kandev",
+      "description": "Kanban tasks, parallel coding agents, worktrees, terminals and code review using this machine's agent sign-ins.",
+      "icon": "apps/web/public/icon.svg",
+      "platforms": [
+        "linux"
+      ],
+      "install": "sh cube/install.sh",
+      "start": "sh cube/start.sh"
+    }
+  },
+  "vibe-kanban": {
+    "sourceCommit": "e25cafb2f1c9a933c21045556938f430d46cd275",
+    "sha256": "cd83030d8c057a2c4f7a6632ec0f43e7becd79b8851cee7ef7e2e740c14b484a",
+    "bundle": "vibe-kanban-cd83030d8c057a2c.tar.gz",
+    "manifest": {
+      "name": "Vibe Kanban",
+      "description": "Local coding-agent workspaces, parallel sessions and code review. Upstream cloud boards have been sunset.",
+      "icon": "packages/public/favicon-vk-light.svg",
+      "platforms": [
+        "linux"
+      ],
+      "install": "sh cube/install.sh",
+      "start": "node cube/start.mjs"
+    }
+  },
+  "paperclip": {
+    "sourceCommit": "2df5087a7e6230ac46e4fb3097f9ce5ee6148007",
+    "sha256": "063f4f11f0ca8c3c963eba6b4d8b833c73947e0d5377ab3db9c799407629dcfc",
+    "bundle": "paperclip-063f4f11f0ca8c3c.tar.gz",
+    "manifest": {
+      "name": "Paperclip",
+      "description": "Manage agent teams, companies, tasks, approvals and budgets using this machine's coding agents.",
+      "icon": "ui/public/favicon.svg",
+      "platforms": [
+        "linux"
+      ],
+      "install": "sh cube/install.sh",
+      "start": "sh cube/start.sh"
+    }
+  },
+  "openhands": {
+    "sourceCommit": "8c4c5e604a437d22cac2ee736b7ce2f25d20443b",
+    "sha256": "28ad5590beec2c259cbb62ea6c203ede430b611b61b96bdf5765aaf4a44f8597",
+    "bundle": "openhands-28ad5590beec2c25.tar.gz",
+    "manifest": {
+      "name": "OpenHands",
+      "description": "Agent Canvas: coding agents, conversations and automations using a local OpenHands backend.",
+      "icon": "public/favicon.svg",
+      "platforms": [
+        "linux"
+      ],
+      "install": "sh cube/install.sh",
+      "start": "sh cube/start.sh"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Cube side manifests
+
+Prefer an original project's repository plus a Market `manifest` over a fork when Cube only needs launch support. These packages move the existing, tested Cube launchers out of six integration forks. The upstream source remains untouched. The manifest downloads a checksum-pinned bundle, materializes its `cube/` launch directory and runs the same install/start commands.
+
+`sources/<app>/cube/` contains reviewable source, tests and the original runtime guide. `provenance.json` records the source commit, original manifest and bundle digest. `bundles/` contains deterministic archives (sorted files, zero timestamps, fixed permissions). Keep published bundles: an installed app saves its side manifest, including the exact bundle URL and SHA-256, across updates and retries. `bootstrap.mjs` is embedded into manifests as `node --input-type=module -e`; it verifies the archive before extraction and refuses to overwrite an upstream `cube/` folder.
+
+Television builds the original source. T3 Code, Kandev, Vibe Kanban, Paperclip and OpenHands use the same pinned upstream releases as their earlier Cube integrations. Their adapters retain Cube ingress authentication, private toolchains, persistent data directories and process cleanup. Paperclip and OpenHands apply their existing small compatibility patches to the downloaded runtime, not the upstream checkout. See each runtime guide for versions and prerequisites.
+
+OpenMausBot still needs source changes for its Cube authentication boundary. OpenWork still needs source changes to build the community UI without enterprise analytics. Those listings continue to install their integration forks and prominently credit/link the original project. `previousRepositories` lets the migrated listings recognize existing fork installations; existing apps are never silently reinstalled or moved to a different update source.
+
+When changing a launcher, update its reviewable source, regenerate a new archive/digest, validate install and startup, and update the side manifest. Never replace a published bundle with different bytes. The catalog metadata describes the selected Git repository; pinned runtime versions are documented in each launcher's README.
