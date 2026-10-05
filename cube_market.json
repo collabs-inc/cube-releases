@@ -256,6 +256,66 @@
       },
       "githubStars": 90011,
       "githubStarsUpdatedAt": "2026-10-05T05:26:24.108Z"
+    },
+    {
+      "id": "cube-studio",
+      "name": "Cube Studio",
+      "description": "Make motion pieces with a Director agent: live preview, a render queue, and renders it reviews for you.",
+      "repository": "https://github.com/collabs-inc/cube-studio",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-studio/c176ab20608d924fca4e9bfbfe503eb9c6d0ba84/studio/icon.svg",
+      "tags": [
+        "Video",
+        "Creative",
+        "Agents"
+      ],
+      "creator": {
+        "name": "collabs-inc",
+        "url": "https://github.com/collabs-inc"
+      },
+      "revision": "c176ab20608d924fca4e9bfbfe503eb9c6d0ba84",
+      "updatedAt": "2026-10-05T08:01:22Z"
+    },
+    {
+      "id": "cube-scout",
+      "name": "Cube Scout",
+      "description": "Go-to-market with Scout: the posts worth your reply across X, LinkedIn, Reddit, HN and video, with drafts in your voice.",
+      "repository": "https://github.com/collabs-inc/cube-scout",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-scout/8b37dab8c28c38f8ec8b4c4897d41433ad7787e0/web/icon.svg",
+      "tags": [
+        "Marketing",
+        "Agents",
+        "Social"
+      ],
+      "creator": {
+        "name": "collabs-inc",
+        "url": "https://github.com/collabs-inc"
+      },
+      "revision": "8b37dab8c28c38f8ec8b4c4897d41433ad7787e0",
+      "updatedAt": "2026-10-05T08:01:07Z",
+      "previousRepositories": [
+        "https://github.com/collabs-inc/cube-radar"
+      ]
+    },
+    {
+      "id": "cube-write",
+      "name": "Cube Write",
+      "description": "An Obsidian-compatible vault for you and your agents, with an Editor that summarizes, links and files.",
+      "repository": "https://github.com/collabs-inc/cube-write",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-write/0f62cbeaea5a01f7c8556c6757be315612e02d23/web/icon.svg",
+      "tags": [
+        "Notes",
+        "Writing",
+        "Agents"
+      ],
+      "creator": {
+        "name": "collabs-inc",
+        "url": "https://github.com/collabs-inc"
+      },
+      "revision": "0f62cbeaea5a01f7c8556c6757be315612e02d23",
+      "updatedAt": "2026-10-05T08:01:05Z",
+      "previousRepositories": [
+        "https://github.com/collabs-inc/cube-notes"
+      ]
     }
   ]
 }
