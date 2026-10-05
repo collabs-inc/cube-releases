@@ -262,7 +262,7 @@
       "name": "Studio",
       "description": "Make motion pieces with a Director agent: live preview, a render queue, and renders it reviews for you.",
       "repository": "https://github.com/collabs-inc/cube-studio",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-8ca487fd823a461fd1caf571bad41efbaf846d74/0b15044b18ecb07d9eed58c61cb39a258ed001f5/8ca487fd823a461fd1caf571bad41efbaf846d74/icon.svg",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-studio/8ca487fd823a461fd1caf571bad41efbaf846d74/studio/icon.svg",
       "tags": [
         "Video",
         "Creative",
@@ -280,7 +280,7 @@
       "name": "Radar",
       "description": "Go-to-market with Scout: the posts worth your reply across X, LinkedIn, Reddit, HN and video, with drafts in your voice.",
       "repository": "https://github.com/collabs-inc/cube-radar",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-radar/628365e69672d8677fbd7ab668a943959a4461c2/042ec91f266080eebf2414db3b5f4fb6a8ed5b97/icon.svg",
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-radar/042ec91f266080eebf2414db3b5f4fb6a8ed5b97/web/icon.svg",
       "tags": [
         "Marketing",
         "Agents",
