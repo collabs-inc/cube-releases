@@ -1,0 +1,14 @@
+diff --git a/excalidraw-app/index.html b/excalidraw-app/index.html
+--- a/excalidraw-app/index.html
++++ b/excalidraw-app/index.html
+@@ -158,8 +158,8 @@
+     </script>
+     <% } %>
+     <script>
+-      // setting this so that libraries installation reuses this window tab.
+-      window.name = "_excalidraw";
++      // Preserve an embedding host's frame identity; unnamed tabs still reuse this tab for libraries.
++      window.name ||= "_excalidraw";
+     </script>
+ 
+     <!-- FIXME: remove this when we update CRA (fix SW caching) -->

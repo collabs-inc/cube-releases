@@ -90,5 +90,24 @@
       "install": "sh cube/install.sh",
       "start": "sh cube/start.sh"
     }
+  },
+  "excalidraw": {
+    "repository": "https://github.com/excalidraw/excalidraw",
+    "sourceCommit": "53973c3a423fbd75a4ce68107786b4fcb90e4968",
+    "sha256": "cef652dcec88d4eaa1cb2f6920dcb9d3847b170d44dd069dd1b54f3e6c749339",
+    "bundle": "excalidraw-cef652dcec88d4ea.tar.gz",
+    "patches": [
+      "preserve-frame-name.patch"
+    ],
+    "manifest": {
+      "name": "Excalidraw",
+      "description": "Sketch diagrams and whiteboards. Autosaves in this browser; export drawings to keep files or move between devices.",
+      "root": "cube/public",
+      "icon": "cube/icon.svg",
+      "platforms": [
+        "linux",
+        "darwin"
+      ]
+    }
   }
 }

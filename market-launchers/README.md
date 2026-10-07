@@ -8,4 +8,6 @@ Television builds the original source. T3 Code, Kandev, Vibe Kanban, Paperclip a
 
 OpenMausBot still needs source changes for its Cube authentication boundary. OpenWork still needs source changes to build the community UI without enterprise analytics. Those listings continue to install their integration forks and prominently credit/link the original project. `previousRepositories` lets the migrated listings recognize existing fork installations; existing apps are never silently reinstalled or moved to a different update source.
 
+Excalidraw uses a pinned static build served directly by Cube, so installation does not compile the app or start another process. Its bundle contains the upstream MIT license, build recipe and one iframe-name compatibility patch; the cloned upstream checkout stays untouched. See [its runtime guide](sources/excalidraw/cube/README.md) for the pinned source, rebuild instructions, browser-local autosave and upstream collaboration services.
+
 When changing a launcher, update its reviewable source, regenerate a new archive/digest, validate install and startup, and update the side manifest. Never replace a published bundle with different bytes. The catalog metadata describes the selected Git repository; pinned runtime versions are documented in each launcher's README.
