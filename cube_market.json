@@ -316,6 +316,40 @@
       "previousRepositories": [
         "https://github.com/collabs-inc/cube-notes"
       ]
+    },
+    {
+      "id": "excalidraw",
+      "name": "Excalidraw",
+      "description": "Sketch diagrams and whiteboards. Autosaves in this browser; export drawings to keep files or move between devices.",
+      "repository": "https://github.com/excalidraw/excalidraw",
+      "icon": "https://raw.githubusercontent.com/excalidraw/excalidraw/53973c3a423fbd75a4ce68107786b4fcb90e4968/public/favicon.svg",
+      "tags": [
+        "Whiteboard",
+        "Design",
+        "Diagrams"
+      ],
+      "creator": {
+        "name": "Excalidraw",
+        "url": "https://github.com/excalidraw"
+      },
+      "website": "https://excalidraw.com",
+      "license": "MIT",
+      "revision": "53973c3a423fbd75a4ce68107786b4fcb90e4968",
+      "updatedAt": "2026-10-06T15:31:23Z",
+      "sourceSizeBytes": 109355008,
+      "githubStars": 133610,
+      "githubStarsUpdatedAt": "2026-10-07T02:06:05Z",
+      "manifest": {
+        "name": "Excalidraw",
+        "description": "Sketch diagrams and whiteboards. Autosaves in this browser; export drawings to keep files or move between devices.",
+        "root": "cube/public",
+        "icon": "cube/icon.svg",
+        "platforms": [
+          "linux",
+          "darwin"
+        ],
+        "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/83383e111ce18617e49d60b0659037cb009ae8bf/market-launchers/bundles/excalidraw-cef652dcec88d4ea.tar.gz cef652dcec88d4eaa1cb2f6920dcb9d3847b170d44dd069dd1b54f3e6c749339 excalidraw"
+      }
     }
   ]
 }
