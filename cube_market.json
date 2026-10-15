@@ -96,6 +96,29 @@
       "githubStarsUpdatedAt": "2026-10-05T05:26:24.108Z"
     },
     {
+      "id": "t3-code-nightly",
+      "name": "T3 Code Nightly",
+      "description": "The nightly T3 coding-agent workspace, with separate data from stable T3. Uses your installed agent sign-ins.",
+      "repository": "https://github.com/collabs-inc/cube-t3-nightly",
+      "icon": "https://raw.githubusercontent.com/pingdotgg/t3code/a1d9d72aefc2a388ea3915956e9d84d279c87da7/apps/web/public/apple-touch-icon.png",
+      "tags": [
+        "Agents",
+        "Development",
+        "Nightly"
+      ],
+      "creator": {
+        "name": "pingdotgg",
+        "url": "https://github.com/pingdotgg"
+      },
+      "upstream": "https://github.com/pingdotgg/t3code",
+      "website": "https://t3.codes",
+      "license": "MIT",
+      "revision": "1f843a5fe04b93a0b01d507c64927d59325460ed",
+      "updatedAt": "2026-10-15T16:27:44Z",
+      "githubStars": 25264,
+      "githubStarsUpdatedAt": "2026-10-05T05:26:24.108Z"
+    },
+    {
       "id": "kandev",
       "name": "Kandev",
       "description": "Kanban tasks, parallel coding agents, worktrees, terminals and code review using this machine's agent sign-ins.",
