@@ -391,11 +391,11 @@
       "upstream": "https://github.com/BuilderIO/agent-native",
       "website": "https://www.agent-native.com/apps/design/",
       "license": "MIT",
-      "revision": "5e85bf6d83a28627f4c88c5e0cfa0d6aca9a6276",
-      "updatedAt": "2026-10-15T05:53:32Z",
+      "revision": "ab1f04a7a51a6bdfdc40c1a56b7b43def0413056",
+      "updatedAt": "2026-10-15T15:41:13Z",
       "githubStars": 7242,
       "githubStarsUpdatedAt": "2026-10-15T05:45:23.224470Z",
-      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-agent-design/5e85bf6d83a28627f4c88c5e0cfa0d6aca9a6276/public/favicon.svg"
+      "icon": "https://raw.githubusercontent.com/collabs-inc/cube-agent-design/ab1f04a7a51a6bdfdc40c1a56b7b43def0413056/public/favicon.svg"
     },
     {
       "id": "agent-native-slides",
