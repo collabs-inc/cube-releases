@@ -1,0 +1,52 @@
+name: Refresh Market star counts
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - cube_market.json
+      - market-metadata/**
+      - .github/workflows/refresh-market-stars.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-market-stars
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Test refresh behavior
+        run: node --test market-metadata/refresh-stars.test.mjs
+      - name: Refresh and publish counts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          # Recompute on the latest catalog if another publisher wins the push.
+          # Never rebase stale metadata over newly added or removed listings.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git reset --hard origin/main
+            node market-metadata/refresh-stars.mjs
+            git add cube_market.json
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m 'chore: refresh Market GitHub star counts'
+            if git push origin HEAD:main; then exit 0; fi
+          done
+          echo 'Could not publish refreshed counts after three attempts.' >&2
+          exit 1
