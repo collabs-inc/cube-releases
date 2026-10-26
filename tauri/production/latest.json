@@ -1,0 +1,10 @@
+{
+  "version": "0.19.0",
+  "pub_date": "2026-10-26T06:43:23.022Z",
+  "platforms": {
+    "darwin-aarch64": {
+      "url": "https://github.com/collabs-inc/cube-releases/releases/download/tauri-production-v0.19.0/Cube_0.19.0_darwin-aarch64.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTlRydjNiMk9rci9Ka0tzWFZTNm5adG16MWNSKzl5eFhOSzFwSnRSS1h6TG0xVlUrS1hrLzZDQVRXT0Q3SGJMU2xGRG5LWEM4eElKTDkybXZNdTFxTHo4NElRcHozTGdRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyOTk2OTkzCWZpbGU6Q3ViZS5hcHAudGFyLmd6CXZlcnNpb246MC4xOS4wCmJBT2syRlJCdWNzall0ZDZycUxuZEtnb2IyV2V1WVdacERMUXZTcEQzUjNXSUsxVnhEOTRLUzdpdlNvMGQ1Q0FoZi9ycDNtTlNuZllhTUgzWE5naER3PT0K"
+    }
+  }
+}
