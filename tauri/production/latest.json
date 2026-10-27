@@ -1,10 +1,10 @@
 {
-  "version": "0.19.5",
-  "pub_date": "2026-10-26T17:30:55.685Z",
+  "version": "0.19.6",
+  "pub_date": "2026-10-27T00:42:54.062Z",
   "platforms": {
     "darwin-aarch64": {
-      "url": "https://github.com/collabs-inc/cube-releases/releases/download/tauri-production-v0.19.5/Cube_0.19.5_darwin-aarch64.app.tar.gz",
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTlRydjNiMk9rci80TlpFbGhlMHhFSFZEWEhZck1lem9iUW1LWlA4c1ZNMXdKbzBZS1RMOVlNZjhRZExiWXhVREtvV1NJRlpPMTlqUU9DS1I5MnRFdDduczg2T2RDQ1E4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMDM1ODQ1CWZpbGU6Q3ViZS5hcHAudGFyLmd6CXZlcnNpb246MC4xOS41CnhkTXEyOWxqcWRPZGEzUG5wVk9YTno5YlF0Wnd4VERnSy93QjgwYXNuNUZlaVlwR2c4SmxWWEdQU2NGY0xPVmFQUHZpM0tWMENUK1pvOXA2ME4reEJnPT0K"
+      "url": "https://github.com/collabs-inc/cube-releases/releases/download/tauri-production-v0.19.6/Cube_0.19.6_darwin-aarch64.app.tar.gz",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSTlRydjNiMk9rcjYvVDJHUlBCbE5MOGRFNEpLd1BRZk5SOEYzU0pJZVozektsZnZBcERGSWlmb2VKcDNGK1d3MVo5SFlUU3FaTUJ2VHdkZEw4U0tEODR6TWliVVJEQUFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkzMDYxNzY0CWZpbGU6Q3ViZS5hcHAudGFyLmd6CXZlcnNpb246MC4xOS42CjZwbmRkUE01SU5HL1dDazZZbG5xWmhITk10TW00QTV3cmxYV1VaOC85cndhSXZZU3lOcGU4M3U4SlZrYlJxOExPZ1k5UVFrVmpPWENFbVdCbUNKeUF3PT0K"
     }
   }
 }
