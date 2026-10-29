@@ -33,8 +33,8 @@
         "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/television-599b379d843cbb59.tar.gz 599b379d843cbb596f9491698f348ab749455a53ceeb30759acfe9963aebffe0 television && bash cube/install.sh",
         "start": "bash cube/start.sh"
       },
-      "githubStars": 240,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 242,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "openmausbot",
@@ -56,8 +56,8 @@
       "revision": "0c6a2a0c7a344821c9ae81e5a1f7f4d92bbc85ca",
       "updatedAt": "2026-10-04T23:53:31Z",
       "sourceSizeBytes": 164768768,
-      "githubStars": 6829,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 7087,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "t3-code",
@@ -92,8 +92,8 @@
         "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/t3-code-d5ae6edaba9416b7.tar.gz d5ae6edaba9416b770bc9bb94834c45c63b6ca0bf6ddca58b6d1730b7aaf02e1 t3-code && sh cube/install.sh",
         "start": "node cube/start.mjs"
       },
-      "githubStars": 31228,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 31371,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "t3-code-nightly",
@@ -115,8 +115,8 @@
       "license": "MIT",
       "revision": "1f843a5fe04b93a0b01d507c64927d59325460ed",
       "updatedAt": "2026-10-15T16:27:44Z",
-      "githubStars": 31228,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 31371,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "kandev",
@@ -150,8 +150,8 @@
         "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/kandev-d8a173d5025eb820.tar.gz d8a173d5025eb820596062d37c78a81c6cd1083eaabc11b698a66fb73ff4da6b kandev && sh cube/install.sh",
         "start": "sh cube/start.sh"
       },
-      "githubStars": 1032,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 1033,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "vibe-kanban",
@@ -185,8 +185,8 @@
         "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/vibe-kanban-cd83030d8c057a2c.tar.gz cd83030d8c057a2c4f7a6632ec0f43e7becd79b8851cee7ef7e2e740c14b484a vibe-kanban && sh cube/install.sh",
         "start": "node cube/start.mjs"
       },
-      "githubStars": 28491,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 28500,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "openwork",
@@ -207,8 +207,8 @@
       "revision": "bfcf107de9df21d9571657d8067712caeb847577",
       "updatedAt": "2026-10-05T01:07:59Z",
       "sourceSizeBytes": 403366912,
-      "githubStars": 24312,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 24313,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "paperclip",
@@ -242,8 +242,8 @@
         "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/paperclip-063f4f11f0ca8c3c.tar.gz 063f4f11f0ca8c3c963eba6b4d8b833c73947e0d5377ab3db9c799407629dcfc paperclip && sh cube/install.sh",
         "start": "sh cube/start.sh"
       },
-      "githubStars": 108363,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 108472,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "openhands",
@@ -277,8 +277,8 @@
         "install": "node --input-type=module -e '// Embedded into each side manifest'\"'\"'s install command; the app needs only Node and tar.\n// The pinned digest makes the launch recipe reproducible even though the catalog is live.\nimport { createHash } from '\"'\"'node:crypto'\"'\"';\nimport { execFileSync } from '\"'\"'node:child_process'\"'\"';\nimport { lstat, mkdtemp, readFile, rename, rm, writeFile } from '\"'\"'node:fs/promises'\"'\"';\nimport path from '\"'\"'node:path'\"'\"';\n\nconst [url, digest, app] = process.argv.slice(1);\nif (!url?.startsWith('\"'\"'https://raw.githubusercontent.com/collabs-inc/cube-releases/'\"'\"') || !/^[a-f0-9]{64}$/.test(digest || '\"'\"''\"'\"') || !/^[a-z0-9-]+$/.test(app || '\"'\"''\"'\"')) throw new Error('\"'\"'Invalid launch recipe.'\"'\"');\nconst target = path.resolve('\"'\"'cube'\"'\"');\nconst existing = await lstat(target).catch(error => { if (error.code === '\"'\"'ENOENT'\"'\"') return null; throw error; });\nif (existing && (existing.isSymbolicLink() || !existing.isDirectory() || await readFile(path.join(target, '\"'\"'.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"').catch(() => '\"'\"''\"'\"') !== `${app}\\n`)) {\n  throw new Error('\"'\"'This repository already has a cube folder; refusing to overwrite it.'\"'\"');\n}\nconst temporary = await mkdtemp(path.resolve('\"'\"'.cube-launch-'\"'\"'));\ntry {\n  const response = await fetch(url, { signal: AbortSignal.timeout(60000) });\n  if (!response.ok) throw new Error(`Launcher download failed (${response.status}).`);\n  const bytes = Buffer.from(await response.arrayBuffer());\n  if (createHash('\"'\"'sha256'\"'\"').update(bytes).digest('\"'\"'hex'\"'\"') !== digest) throw new Error('\"'\"'Launcher checksum mismatch.'\"'\"');\n  const archive = path.join(temporary, '\"'\"'launcher.tar.gz'\"'\"');\n  await writeFile(archive, bytes);\n  execFileSync('\"'\"'tar'\"'\"', ['\"'\"'-xzf'\"'\"', archive, '\"'\"'-C'\"'\"', temporary], { stdio: '\"'\"'inherit'\"'\"' });\n  if (await readFile(path.join(temporary, '\"'\"'cube/.market-launcher'\"'\"'), '\"'\"'utf8'\"'\"') !== `${app}\\n`) throw new Error('\"'\"'Wrong launcher archive.'\"'\"');\n  if (existing) await rm(target, { recursive: true });\n  await rename(path.join(temporary, '\"'\"'cube'\"'\"'), target);\n} finally {\n  await rm(temporary, { recursive: true, force: true });\n}\n' https://raw.githubusercontent.com/collabs-inc/cube-releases/0e57b2de2910e7838490e20a6f6e1e8301376518/market-launchers/bundles/openhands-28ad5590beec2c25.tar.gz 28ad5590beec2c259cbb62ea6c203ede430b611b61b96bdf5765aaf4a44f8597 openhands && sh cube/install.sh",
         "start": "sh cube/start.sh"
       },
-      "githubStars": 92144,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 92181,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "cube-studio",
@@ -298,7 +298,7 @@
       "revision": "c176ab20608d924fca4e9bfbfe503eb9c6d0ba84",
       "updatedAt": "2026-10-05T08:01:22Z",
       "githubStars": 0,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "cube-scout",
@@ -321,7 +321,7 @@
         "https://github.com/collabs-inc/cube-radar"
       ],
       "githubStars": 0,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "cube-write",
@@ -344,7 +344,7 @@
         "https://github.com/collabs-inc/cube-notes"
       ],
       "githubStars": 0,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     },
     {
       "id": "excalidraw",
@@ -366,8 +366,8 @@
       "revision": "53973c3a423fbd75a4ce68107786b4fcb90e4968",
       "updatedAt": "2026-10-06T15:31:23Z",
       "sourceSizeBytes": 109355008,
-      "githubStars": 134758,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z",
+      "githubStars": 134780,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z",
       "manifest": {
         "name": "Excalidraw",
         "description": "Sketch diagrams and whiteboards. Autosaves in this browser; export drawings to keep files or move between devices.",
@@ -401,8 +401,8 @@
       "revision": "113ba92fc4129cf7253bc52c1bc3d8a054641921",
       "updatedAt": "2026-10-12T04:31:52Z",
       "sourceSizeBytes": 1113916416,
-      "githubStars": 109326,
-      "githubStarsUpdatedAt": "2026-10-29T05:49:35.940Z"
+      "githubStars": 109715,
+      "githubStarsUpdatedAt": "2026-10-29T13:02:17.608Z"
     }
   ]
 }
